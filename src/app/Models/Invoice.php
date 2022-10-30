@@ -69,8 +69,8 @@ class Invoice extends Model implements Mailable
 
 //        $fetchStmt->bindValue(':email', '%'. $email.'%');
         $fetchStmt->bindValue(':id', $invoiceId);
-        $fetchStmt->execute();
-        return $fetchStmt->fetch();
+        $result = $fetchStmt->executeQuery();
+        return $result->fetchAllAssociative();
     }
 
 
@@ -178,12 +178,18 @@ class Invoice extends Model implements Mailable
 
     public function all(InvoiceStatus $status): array
     {
-        var_dump('Inside all method', $status->value);
-        $stm = $this->db->prepare(
-            'SELECT id, amount,status FROM invoices WHERE status = ?'
-        );
-
-        $stm->execute([$status->value]);
-        return $stm->fetchAll(PDO::FETCH_OBJ);
+        return $this->db->createQueryBuilder()
+            ->select('id', 'amount', 'status')
+            ->from('invoices')
+            ->where('status = ?')
+            ->setParameter(0, $status->value)
+            ->fetchAllAssociative();
+//        var_dump('Inside all method', $status->value);
+//        $stm = $this->db->prepare(
+//            'SELECT id, amount,status FROM invoices WHERE status = ?'
+//        );
+//
+//        $stm->execute([$status->value]);
+//        return $stm->fetchAll(PDO::FETCH_OBJ);
     }
 }

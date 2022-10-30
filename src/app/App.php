@@ -40,8 +40,8 @@ class App
 
         $this->config = new Config($_ENV);
 
-//        static::$db = DB::getInstance($this->config->db);
-        static::$db = new DB($this->config->db ?? []);
+        static::$db = DB::getInstance($this->config->db);
+//        static::$db = new DB($this->config->db ?? []);
         $this->container->set(PaymentGatewayInterface::class, PaddleGateway::class);
         $this->container->set(MailerInterface::class, fn() => new CustomMailer($this->config->mailer['dsn']));
 

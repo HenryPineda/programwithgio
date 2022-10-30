@@ -42,7 +42,7 @@ class HomeController
         {
             $transactions = array_merge($transactions, TransactionFiles::getTransactions($file, 'parseTransaction'));
         }
-
+        var_dump('INVOICE',$invoice->find(18));
         return View::make('index', ['invoice' => $invoice->find(18), 'users' => $users, 'transactions' => $transactions] );
 
 

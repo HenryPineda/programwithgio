@@ -15,7 +15,7 @@ class InvoiceController
 //        echo 'Invoices page!';
         var_dump(InvoiceStatus::PAID, gettype(InvoiceStatus::PENDING), is_object(InvoiceStatus::FAILED));
         $invoices = (new Invoice())->all(InvoiceStatus::PAID);
-
+        var_dump($invoices);
         return View::make('invoices/index', ['invoices' => $invoices]);
     }
 

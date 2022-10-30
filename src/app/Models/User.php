@@ -23,8 +23,8 @@ class User extends Model
     {
         $query = "SELECT * FROM users";
         $stm = $this->db->prepare($query);
-        $stm->execute();
-        return $stm->fetchAll();
+        $result = $stm->executeQuery();
+        return $result->fetchAllAssociative();
     }
 
 }

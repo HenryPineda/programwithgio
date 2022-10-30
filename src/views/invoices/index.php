@@ -35,14 +35,19 @@
     </thead>
     <tbody>
         <?php foreach ($invoices as $invoice): ?>
+        <pre>
+            <?php print_r($invoice); ?>
+        </pre>
             <tr>
-                <td><?php echo $invoice->id ?> </td>
-                <td><?php echo number_format($invoice->amount, 2) ?> </td>
-<!--                <td>--><?php //echo $invoice->status ?><!-- </td>-->
-                <td class="color-<?= App\Enums\InvoiceStatus::tryFrom($invoice->status)->color()->value  ?>">
-                    <?php echo App\Enums\InvoiceStatus::tryFrom($invoice->status)->toString(); ?>
-                </td>
+                    <td><?php echo $invoice['id'] ?> </td>
+                    <td><?php echo number_format($invoice['amount'], 2) ?> </td>
+                    <td class="color-<?= App\Enums\InvoiceStatus::tryFrom($invoice['status'])->color()->value  ?>">
+                        <?php echo App\Enums\InvoiceStatus::tryFrom($invoice['status'])->toString(); ?>
+                    </td>
+
             </tr>
+
+
         <?php endforeach; ?>
     </tbody>
 </table>

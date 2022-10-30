@@ -7,9 +7,9 @@
 <a href="/download">My File<button>Donwload File</button></a>
 <hr />
 <?php if(!empty($invoice)): ?>
-Invoice Id: <?= $invoice['invoice_id'] ?>
-    Invoice Amount: <?= $invoice['amount'] ?>
-    User Name: <?= $invoice['full_name'] ?>
+Invoice Id: <?= $invoice[0]['invoice_id'] ?>
+    Invoice Amount: <?= $invoice[0]['amount'] ?>
+    User Name: <?= $invoice[0]['full_name'] ?>
 
 <?php endif ?>
 
