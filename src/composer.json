@@ -14,7 +14,10 @@
         "doctrine/dbal": "^3.4",
         "doctrine/orm": "^2.13",
         "symfony/cache": "^6.1",
-        "doctrine/migrations": "^3.5"
+        "doctrine/migrations": "^3.5",
+        "illuminate/database": "^9.37",
+        "illuminate/events": "^9.37",
+        "guzzlehttp/guzzle": "^7.5"
     },
     "autoload": {
         "psr-4": {

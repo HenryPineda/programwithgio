@@ -1,0 +1,4 @@
+/src/vendor
+/docker/storage
+.idea/
+/src/.env
