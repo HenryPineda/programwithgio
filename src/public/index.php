@@ -13,8 +13,10 @@ use App\Controllers\InvoiceController;
 use App\Controllers\HomeController;
 use App\Controllers\GeneratorExampleController;
 use App\App;
-use App\Container;
+//use App\Container;
+use Illuminate\Container\Container;
 use App\Controllers\UserController;
+use App\Controllers\CurlController;
 
 $container = new Container();
 
@@ -25,7 +27,8 @@ $router = new Router($container);
            HomeController::class,
            GeneratorExampleController::class,
            InvoiceController::class,
-           UserController::class
+           UserController::class,
+           CurlController::class
        ]
     );
 
